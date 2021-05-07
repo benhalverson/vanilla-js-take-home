@@ -12,3 +12,5 @@ To run this project
 - `npm i`
 - `npm start`
 - browse to `localhost:8080`
+- live demo https://relaxed-johnson-9fdf42.netlify.app/
+
