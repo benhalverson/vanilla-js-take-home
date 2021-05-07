@@ -5,14 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev:scss": "./node_modules/node-sass/bin/node-sass scss/ --output public/css --watch --output-style=expanded",
-    "dev": "nodemon --exec python3 -m http.server -d public/"
+    "dev": "nodemon --exec python3 -m http.server -d public",
+    "start": "http-server"
   },
   "keywords": [],
   "author": "Ben Halverson <benhalverson33@gmail.com> (http://benhalverson.me/)",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "7.25.0",
-    "eslint-config-google": "0.14.0",
     "http-server": "0.12.3"
   },
   "dependencies": {

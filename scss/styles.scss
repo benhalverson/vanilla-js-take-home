@@ -1,5 +1,128 @@
-$color: green;
+@import './variables.scss';
 
-.test {
-  color: $color;
+body {
+  background: $background;
+  font-family: 'Source Sans Pro', 'Roboto', sans-serif;
+}
+
+input[type='text'] {
+  background-color: #fbfbfb;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  border: 0px;
+  color: #fbfbfb;
+  font-size: $normal-size;
+  height: 50px;
+  margin: 0;
+  padding-left: 15px;
+  padding: 0;
+  width: 200px;
+}
+
+input[type='text']::placeholder {
+  color: $dark-gray;
+}
+
+input[type='text']:focus-visible {
+  outline: none;
+}
+
+.search-button {
+  background-color: $blue;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  border: none;
+  color: $white;
+  font-size: $normal-size;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  transition: 0.2 all;
+  width: 120px;
+}
+.search-button:active {
+  box-shadow: 3px 2px 22px 1px $black;
+  transform: scale(0.98);
+}
+
+.search-button:hover {
+  background-color: $blue;
+}
+
+.title {
+  font-weight: 900;
+  color: $dark-gray;
+}
+
+.flex {
+  display: flex;
+}
+
+.row {
+  flex-flow: row wrap;
+}
+
+.col {
+  flex-flow: column;
+}
+
+.spacer {
+  border-top: 2px solid $light-gray;
+}
+
+.list {
+  margin: 1em;
+}
+
+.list::after {
+  content: '';
+  flex-grow: 10;
+}
+
+.age {
+  border: 1px solid $light-gray;
+  border-radius: 10px;
+  padding: 0.7em;
+  height: 175px;
+  width: 175px;
+  max-width: 175px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin: 1rem;
+  color: $numbers-color;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.name-item {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.age-item {
+  overflow: hidden;
+  font-size: 6rem;
+  font-weight: 1000;
+}
+
+.count-item {
+  color: $light-gray;
+}
+
+.close-item {
+  font-size: 1.2em;
+  color: $blue;
+  border: none;
+  cursor: pointer;
+}
+
+.rectangle {
+  height: 100%;
+}
+
+.center {
+  justify-content: center;
 }
