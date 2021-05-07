@@ -4,13 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:scss": "./node_modules/node-sass/bin/node-sass scss/ --output public/css --watch --output-style=expanded",
+    "dev": "nodemon --exec python3 -m http.server -d public/"
   },
   "keywords": [],
   "author": "Ben Halverson <benhalverson33@gmail.com> (http://benhalverson.me/)",
   "license": "MIT",
   "devDependencies": {
-    "node-sass": "5.0.0",
-    "typescript": "4.2.4"
+    "eslint": "7.25.0",
+    "eslint-config-google": "0.14.0",
+    "http-server": "0.12.3"
+  },
+  "dependencies": {
+    "node-sass": "5.0.0"
   }
 }
