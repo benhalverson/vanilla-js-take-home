@@ -1,7 +1,7 @@
 function localStorge(localStorage = window.localStorage) {
   const STORAGE_STRING = 'agify';
 
-  function loadAges() {
+  const loadAges = () => {
     const storage = localStorage.getItem(STORAGE_STRING);
 
     let list = [];
@@ -101,13 +101,16 @@ function renderAges(storage) {
   const closeButton = document.getElementsByClassName('close-item');
   for (let i = 0; closeButton.length; i++) {
     const close = closeButton.item(i);
+    console.log('close', closeButton.item)
     const onRemove = event => {
       const indexToRemove = parseInt(event.target.dataset.index, 10);
       storage.removeAge(indexToRemove);
       close.removeEventListener('click', onRemove);
       renderAges(storage);
+      console.log('close 1', close);
     };
-    close.addEventListener('click', onRemove);
+    console.log('close 2', close);
+    close.removeEventListener('click', onRemove());
   }
 }
 

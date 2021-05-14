@@ -1,4 +1,5 @@
 spec
+node_modules
 public/css/styles.css
 # Local Netlify folder
 .netlify
