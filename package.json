@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "dev:scss": "./node_modules/node-sass/bin/node-sass scss/ --output public/css --watch --output-style=expanded",
-    "dev": "./node_modules/nodemon/bin/nodemon.js --exec python3 -m http.server -d public",
     "build": "./node_modules/node-sass/bin/node-sass scss/ --output public/css --output-style=compressed",
     "start": "http-server"
   },

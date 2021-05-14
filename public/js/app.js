@@ -19,9 +19,21 @@ function localStorge(localStorage = window.localStorage) {
     return [];
   }
 
-  function addAge(age) {
+  function addAge(newAge) {
     const list = loadAges();
-    list.push(age);
+    const foundDuplicates = list.filter((age) => {
+      if(newAge.name === age.name) {
+        return true;
+      }
+
+      return false;
+    });
+    
+    if(foundDuplicates.length >0) {
+      alert('no duplicates please');
+      return;
+    }
+    list.push(newAge);
     const lastNine = list.slice(-9);
     localStorage.setItem(STORAGE_STRING, JSON.stringify(lastNine));
   }
@@ -48,7 +60,7 @@ function search(buttonId, inputId, ageForm, onSearch) {
     event.preventDefault();
     const name = input.value;
     if (!name) {
-      throw new Error('A name is required');
+      alert('a name is required');
     }
 
     if (typeof onSearch === 'function') {
@@ -61,6 +73,9 @@ function search(buttonId, inputId, ageForm, onSearch) {
 }
 
 function nameSearch(name) {
+  if(name === '') {
+    return 
+  }
   return fetch(`https://api.agify.io?name=${name}`)
     .then(response => response.json())
     .catch(error => console.error('Error', error));
@@ -107,17 +122,19 @@ function renderAges(storage) {
       storage.removeAge(indexToRemove);
       close.removeEventListener('click', onRemove);
       renderAges(storage);
-      console.log('close 1', close);
     };
-    console.log('close 2', close);
     close.removeEventListener('click', onRemove());
   }
 }
 
 search('button', 'nameInput', 'ageForm', nameToSearch => {
   nameSearch(nameToSearch)
-    .then(age => {
-      storage.addAge(age);
+    .then(data => {
+      if(data.age === null) {
+        alert('enter a valid name');
+        return;
+      }
+      storage.addAge(data);
       renderAges(storage);
     })
     .catch(error => console.error('Search error', error));
